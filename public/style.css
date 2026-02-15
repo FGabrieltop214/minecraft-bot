@@ -1,0 +1,35 @@
+.dashboard {
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+}
+
+.dashboard h1 {
+    color: #333;
+}
+
+.dashboard button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dashboard button:hover {
+    background-color: #45a049;
+}
+
+.dashboard .status {
+    margin-top: 20px;
+    color: #555;
+}
+
+.dashboard .status.online {
+    color: #28a745;
+}
+
+.dashboard .status.offline {
+    color: #dc3545;
+}
