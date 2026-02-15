@@ -1,31 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Bot Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Minecraft Bot Dashboard</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Bot Status</h2>
-            <p>The bot is currently running.</p>
-        </section>
-        <section>
-            <h2>Commands</h2>
-            <ul>
-                <li>/help - Show available commands</li>
-                <li>/status - Get the bot status</li>
-                <li>/restart - Restart the bot</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 FGabrieltop214</p>
-    </footer>
+    <div class="container">
+        <header class="header">
+            <h1>🤖 Minecraft Bot Dashboard</h1>
+            <p class="subtitle">Controle seu bot Minecraft Java 1.21+</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Seção de Configuração -->
+            <section class="section config-section">
+                <h2>⚙️ Configuração</h2>
+                <div class="form-group">
+                    <label for="host">Endereço IP/Host do Servidor:</label>
+                    <input type="text" id="host" placeholder="localhost ou 192.168.1.1" value="ClansEntreEjoge.aternos.me">
+                </div>
+
+                <div class="form-group">
+                    <label for="port">Porta:</label>
+                    <input type="number" id="port" placeholder="25565" value="13020" min="1" max="65535">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Nome do Bot:</label>
+                    <input type="text" id="username" placeholder="bot" value="bot">
+                </div>
+
+                <button id="updateConfig" class="btn btn-primary">💾 Salvar Configuração</button>
+            </section>
+
+            <!-- Seção de Status -->
+            <section class="section status-section">
+                <h2>📊 Status do Bot</h2>
+                <div class="status-box">
+                    <div class="status-item">
+                        <span class="status-label">Status:</span>
+                        <span id="botStatus" class="status-value offline">⚫ Desconectado</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Servidor:</span>
+                        <span id="serverInfo" class="status-value">-</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Nome do Bot:</span>
+                        <span id="botName" class="status-value">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Controle -->
+            <section class="section control-section">
+                <h2>🎮 Controle</h2>
+                <div class="button-group">
+                    <button id="startBtn" class="btn btn-success">▶️ Conectar Bot</button>
+                    <button id="stopBtn" class="btn btn-danger" disabled>⏹️ Desconectar Bot</button>
+                </div>
+            </section>
+
+            <!-- Seção de Chat -->
+            <section class="section chat-section">
+                <h2>💬 Chat</h2>
+                <div class="chat-box" id="chatBox">
+                    <div class="chat-message system">Bot iniciado e pronto para conectar</div>
+                </div>
+                <div class="chat-input-group">
+                    <input type="text" id="chatInput" placeholder="Enviar mensagem..." disabled>
+                    <button id="sendBtn" class="btn btn-primary" disabled>Enviar</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Minecraft Bot v1.0.0 | Desenvolvido com ❤️</p>
+        </footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
